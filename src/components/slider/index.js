@@ -42,13 +42,10 @@ const Slider = () => {
                             resizeMode='contain'
                             style={{ flex: 1, width: '100%', height: '100%' }} />
                     </View>
-
                 </View>
                 <View style={{}}>
                     <Text style={styles.title}>{item.title}</Text>
-                    <View style={{}} />
-                    <Text numberOfLines={3} style={styles.text}>{item.text}</Text>
-                    <View style={{}} />
+                    <Text numberOfLines={3} style={[styles.text, { color: Colors.text.secondary }]}>{item.text}</Text>
                 </View>
             </>
 

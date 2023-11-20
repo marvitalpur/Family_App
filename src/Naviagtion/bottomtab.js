@@ -11,7 +11,7 @@ import TabBar from "../components/TabBar";
 import { Colors } from "../assets/theme";
 import MyJournals from "../screens/Home/MyJournals";
 const Tab = createBottomTabNavigator();
-const MyTabs = () => {
+const MyT = () => {
     return (
         <>
             <Tab.Navigator
@@ -66,5 +66,5 @@ const MyTabs = () => {
     )
 }
 
-export default MyTabs
+export default MyT
 

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnBoarding from '../screens/Auth/Onboarding';
+import { NavigationContainer } from '@react-navigation/native';
 import Login from '../screens/Auth/Login';
 import HomeScreen from '../screens/Home/HomeScreen';
 import MyTabs from './bottomtab';
@@ -32,28 +33,32 @@ const StackNavigator = () => {
     // }, [userData])
 
     return (
-        <Stack.Navigator
-            screenOptions={{
-                headerShown: false,
-                headerTransparent: true,
-                animationTypeForReplace: 'push',
-                animation: 'slide_from_right',
-            }}
-            // initialRouteName={auth && "MyDrawer"}
-            initialRouteName={'OnBoarding'}>
-            <Stack.Screen name="OnBoarding" component={OnBoarding} />
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-            <Stack.Screen name='MyDrawer' component={MyDrawer} />
-            <Stack.Screen name="ForgetPAssword" component={ForgetPAssword} />
-            <Stack.Screen name="OtpScreen" component={OtpScreen} />
-            <Stack.Screen name="PlanScreen" component={PlanScreen} />
-            <Stack.Screen name="MyProfile" component={MyProfile} />
-            <Stack.Screen name="PurposeScreen" component={PurposeScreen} />
-            <Stack.Screen name="My Journals" component={MyJournals} />
-            <Stack.Screen name="How_It_Works" component={How_It_Works} />
-            <Stack.Screen name="WriteGratitude" component={WriteGratitude} />
-        </Stack.Navigator>
+        <NavigationContainer>
+            <Stack.Navigator
+                screenOptions={{
+                    headerShown: false,
+                    headerTransparent: true,
+                    animation: 'none',
+                    animationTypeForReplace: 'pop'
+                    // animation: 'slide_from_right',
+                }}
+                // initialRouteName={auth && "MyDrawer"}
+                initialRouteName={'OnBoarding'}>
+                <Stack.Screen name="OnBoarding" component={OnBoarding} />
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+                <Stack.Screen name='MyDrawer' component={MyDrawer} />
+                <Stack.Screen name="ForgetPAssword" component={ForgetPAssword} />
+                <Stack.Screen name="OtpScreen" component={OtpScreen} />
+                <Stack.Screen name="PlanScreen" component={PlanScreen} />
+                <Stack.Screen name="MyProfile" component={MyProfile} />
+                <Stack.Screen name="PurposeScreen" component={PurposeScreen} />
+                <Stack.Screen name="My Journals" component={MyJournals} />
+                <Stack.Screen name="How_It_Works" component={How_It_Works} />
+                <Stack.Screen name="WriteGratitude" component={WriteGratitude} />
+            </Stack.Navigator>
+        </NavigationContainer>
+
     );
 };
 

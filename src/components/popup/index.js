@@ -7,7 +7,11 @@ import { CheckIcon, QuestionIcon } from "../../assets/theme/svgimages";
 import Images from "../../assets/Images";
 const Popup = (props) => {
     return (
-        <Modal isVisible={props.isModalVisible} style={{}}>
+        <Modal isVisible={props.isModalVisible}
+            backdropOpacity={0.5}
+            animationIn={false}
+            coverScreen={true}
+            style={{}}>
             <View style={{ justifyContent: 'center', color: Colors.background.tertiary, padding: 10 }}>
                 <View style={styles.boxView}>
                     <View style={{ marginTop: 10, alignItems: 'center' }} >

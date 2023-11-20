@@ -22,7 +22,7 @@ const Inputs = (props) => {
                     placeholder={props.placeholder}
                     value={props.value}
                     onChangeText={props.handleChange}
-                    placeholderTextColor={Colors.text.tertiary}
+                    placeholderTextColor={Colors.text.secondary}
                     style={styles.inputs}
                 />
             ) : (
@@ -40,7 +40,7 @@ const Inputs = (props) => {
                     onChangeText={props.handleChange}
                     placeholderTextColor={Colors.text.secondary}
                     style={styles.inputs}
-                    right={<TextInput.Icon icon="eye" color={Colors.white} />}
+                    right={<TextInput.Icon icon="eye" color={props.color} />}
 
 
                 />

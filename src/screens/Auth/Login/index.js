@@ -53,6 +53,7 @@ const Login = (props) => {
                             setText={setPassword}
                             secureTextEntry={true}
                             formKey="password"
+                            color={Colors.text.secondary}
                         />
                         <View style={{ marginTop: 15 }} />
                         <TouchableOpacity onPress={() => props.navigation.navigate('ForgetPAssword')} >

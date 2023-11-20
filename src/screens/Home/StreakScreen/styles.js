@@ -4,47 +4,38 @@ import { Colors, Fonts } from "../../../assets/theme";
 export default StyleSheet.create({
     container: {
         flex: 1,
-        background: Colors.background.primary,
-        paddingHorizontal: 15,
+        background: Colors.background.secondary,
     },
     text: {
-        // textAlign: 'center',
-        fontSize: Fonts.size.xSmall,
-        // lineHeight: 22,
-        paddingHorizontal: 15,
-        color: Colors.gary9,
-        paddingTop: 10
-    },
-    text2: {
-        // textAlign: 'center',
+        paddingHorizontal: 10,
         fontSize: Fonts.size.small,
-        paddingHorizontal: 15,
-        color: Colors.white,
-        fontWeight: '600'
+        color: Colors.text.tertiary,
+    },
+    textView: {
+        paddingTop: 5, flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 5
     },
     headtext: {
         paddingLeft: 15,
         fontSize: Fonts.size.xLarge,
-        fontWeight: 'bold'
+        color: Colors.text.tertiary
     },
-    lists: {
-        // flex: 1,
-        marginVertical: 5,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        paddingHorizontal: 10
+    box: {
+        borderColor: 'rgba(67, 59, 115, 255)',
+        borderWidth: 1,
+        borderColor: Colors.white,
+        borderRadius: 10,
+        paddingTop: 20,
+        paddingBottom: 20
     },
-    boxView: {
-        // flex: 1,
-        justifyContent: 'center',
-        borderRadius: 20,
-        backgroundColor: Colors.inputbostext,
-        paddingHorizontal: 15,
-        // justifyContent: 'center',
-        // alignItems: 'center'
-        // opacity: 0.1,
-
+    textArea: {
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: Colors.white,
+        backgroundColor: 'rgba(67, 59, 115, 255)',
+        // height: 150,
+        // justifyContent: "flex-start",
+        // textAlignVertical: 'top'
     }
-
-
 })

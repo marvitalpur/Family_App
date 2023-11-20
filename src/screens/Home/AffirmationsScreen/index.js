@@ -10,23 +10,22 @@ import PurposeCompo from '../../../components/purposeCompo';
 import Popup from '../../../components/popup';
 import UserCompo from '../../../components/userCompo';
 import DummyData from '../../../components/DummyData';
+import { useNavigation } from '@react-navigation/native';
 
 const Affirmations = (props) => {
+    const navigation = useNavigation();
     const [show, setShow] = useState('');
     const [visible, setVisible] = useState(false);
     const [checked, setChecked] = React.useState('');
-    const [selectedOption, setSelectedOption] = useState(null);
-    const handleOptionClick = (option) => { setSelectedOption(1); };
+    const [selectedOption, setSelectedOption] = useState(0);
+
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ImageBackground
                 source={Images.backgroundImages.BackgroundImage}
                 resizeMode="cover"
                 style={{ flex: 1, backgroundColor: Colors.green }}>
-                <Header onPress={() =>
-                    props.backIcon1
-                        ? props.navigation.closeDrawer()
-                        : props.navigation.openDrawer()}
+                <Header onPress={() => props.navigation.openDrawer()}
                     image={Images.user.userProfile}
                     imgPress={() => props.navigation.navigate('MyProfile')}
                 />
@@ -154,18 +153,18 @@ const Affirmations = (props) => {
                         </View>
                         <View style={{ paddingHorizontal: 15, paddingTop: 5 }}>
                             <View style={styles.btnrow}>
-                                <TouchableOpacity onPress={() => handleOptionClick('RecentTasks')}>
-                                    <Text style={[styles.btntext, selectedOption === 'RecentTasks' && styles.selectedText]}>
+                                <TouchableOpacity onPress={() => setSelectedOption(0)} >
+                                    <Text style={[styles.btntext, selectedOption === 0 && styles.selectedText]}>
                                         Weekly
                                     </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => handleOptionClick('CompletedTasks')}>
-                                    <Text style={[styles.btntext, selectedOption === 'CompletedTasks' && styles.selectedText]}>
+                                <TouchableOpacity onPress={() => setSelectedOption(1)}>
+                                    <Text style={[styles.btntext, selectedOption === 1 && styles.selectedText]}>
                                         Monthly
                                     </Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => handleOptionClick('CompletedTasks')}>
-                                    <Text style={[styles.btntext, selectedOption === 'CompletedTasks' && styles.selectedText]}>
+                                <TouchableOpacity onPress={() => setSelectedOption(2)}>
+                                    <Text style={[styles.btntext, selectedOption === 2 && styles.selectedText]}>
                                         Lifetime
                                     </Text>
                                 </TouchableOpacity>
@@ -194,7 +193,7 @@ const Affirmations = (props) => {
                     </View>
                 </ScrollView>
             </ImageBackground>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
 

@@ -11,9 +11,11 @@ import Inputs from '../../../components/TextInput';
 import { DimondIcon, Trashbox } from '../../../assets/theme/svgimages';
 import Radiobtns from '../../../components/Radiobtns';
 import Button from '../../../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 
 const TeamScreen = (props) => {
+    const navigation = useNavigation();
     const [checked, setChecked] = React.useState('');
     const Purpose = [
         { id: 1, text: "Daily Habits", image: Images.icons.callender, priceText: '80', name: 'Victoria Fox', email: 'janice.anderws@gmail.com' },
@@ -31,10 +33,7 @@ const TeamScreen = (props) => {
                 source={Images.backgroundImages.BackgroundImage}
                 resizeMode="cover"
                 style={{ flex: 1, backgroundColor: Colors.green }}>
-                <Header onPress={() =>
-                    props.backIcon1
-                        ? props.navigation.closeDrawer()
-                        : props.navigation.openDrawer()
+                <Header onPress={() => navigation.openDrawer()
                 }
                     image={Images.user.userProfile}
                     imgPress={() => props.navigation.navigate('MyProfile')}

@@ -37,7 +37,7 @@ const MyJournals = (props) => {
                         <View style={{ marginTop: 25 }} />
                         <Text style={styles.headtext}>Journal</Text>
                         <View style={{ paddingHorizontal: 15, marginTop: 10, flex: 1 }} >
-                            <TouchableOpacity style={styles.textAreaContainer} onPress={() => { props.navigation.navigate('How_It_Works') }} style={styles.box}>
+                            <TouchableOpacity onPress={() => { props.navigation.navigate('How_It_Works') }} style={styles.box}>
                                 <Text numberOfLines={1} style={styles.text}>
                                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
                                     sed diam nonumy eirmod tempor invidunt ut...</Text>

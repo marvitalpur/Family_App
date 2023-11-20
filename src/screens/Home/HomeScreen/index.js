@@ -7,14 +7,18 @@ import styles from './styles'
 import CheckboxCompo from '../../../components/CheboxCompo'
 import Button from '../../../components/Button';
 import Header from '../../../components/header';
-import PurposeCompo from '../../../components/purposeCompo';
-import DummyData from '../../../components/DummyData';
 import Radiobtns from '../../../components/Radiobtns';
 import Popup from '../../../components/popup';
+import { useNavigation } from '@react-navigation/native';
 const HomeScreen = (props) => {
-    const [visible, setVisible] = useState(false)
+    const navigation = useNavigation();
+    const [visible, setVisible] = useState(false);
+    const [show, setShow] = useState(false)
     const list = [
-        { id: 1, text: "Faith", text2: "Pray or Meditate" },
+        {
+            id: 1, text: "Faith", text2: "Pray or Meditate",
+            onPress: () => setVisible(!visible)
+        },
         { id: 2, text: "Faith", text2: "Read Bible" },
         { id: 3, text: "Family", text2: "Invest in marriage" },
         { id: 4, text: "Family", text2: "Invest in family" },
@@ -31,11 +35,7 @@ const HomeScreen = (props) => {
                 source={Images.backgroundImages.BackgroundImage}
                 resizeMode="cover"
                 style={{ flex: 1, backgroundColor: Colors.green }}>
-                <Header onPress={() =>
-                    props.backIcon1
-                        ? props.navigation.closeDrawer()
-                        : props.navigation.openDrawer()
-                }
+                <Header onPress={() => navigation.openDrawer()}
                     image={Images.user.userProfile}
                     imgPress={() => props.navigation.navigate('MyProfile')}
                 />
@@ -47,7 +47,7 @@ const HomeScreen = (props) => {
                         <View style={{ alignSelf: 'center', padding: 10, marginTop: 10 }}>
                             <Image source={Images.logo.gamelogo} resizeMode='contain' />
                         </View>
-                        <Text style={styles.text}>
+                        <Text style={[styles.text, { paddingLeft: 15, color: Colors.text.quaternary }]}>
                             SUNDAY, APR 9
                         </Text>
                         <View style={{ marginTop: 5 }} />
@@ -58,6 +58,7 @@ const HomeScreen = (props) => {
                                     <>
                                         <ScrollView>
                                             <CheckboxCompo
+                                                onClick={item.onPress}
                                                 checked={checked === item.id}
                                                 setChecked={() => setChecked(item.id)}
                                                 text={item.text}
@@ -156,7 +157,6 @@ const HomeScreen = (props) => {
 
                         </View>
                         <View style={{ marginTop: 10 }} />
-
                         <View style={{ marginTop: 10 }} />
                         <View style={styles.textView}>
                             <Text style={[styles.text,
@@ -178,7 +178,19 @@ const HomeScreen = (props) => {
                             btntitle2="Cancel" btntitle1="Confirm"
                             headtext="Confirm"
                             text="Remember you can't uncheck this term again?"
-                            isModalVisible={visible} hide={() => setVisible(!visible)} />
+                            isModalVisible={visible} hide={() => {
+                                setVisible(false)
+                                setShow(!show)
+                            }} />
+                        <Popup
+                            btn1 btntitle1="Done"
+                            headtext="Hurray!"
+                            text="You got an 1 point today!"
+                            isModalVisible={show} hide={() => {
+                                setShow(false)
+                                setVisible(false)
+                                // navigation.navigate('My Journals')
+                            }} />
                     </View>
                 </ScrollView>
             </ImageBackground>

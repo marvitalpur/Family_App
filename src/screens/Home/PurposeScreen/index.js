@@ -10,12 +10,14 @@ import { DimondIcon } from '../../../assets/theme/svgimages';
 import Radiobtns from '../../../components/Radiobtns';
 import Popup from '../../../components/popup';
 import DummyData from '../../../components/DummyData';
+import { useNavigation } from '@react-navigation/native';
 
 
 const PurposeScreen = (props) => {
+    const navigation = useNavigation();
     const [show, setShow] = useState(false);
     const [visible, setVisible] = useState(false);
-    const [selectedOption, setSelectedOption] = useState('RecentTasks');
+    const [selectedOption, setSelectedOption] = useState(0);
     const handleOptionClick = (option) => {
         setSelectedOption(1);
     };
@@ -25,11 +27,7 @@ const PurposeScreen = (props) => {
                 source={Images.backgroundImages.BackgroundImage}
                 resizeMode="cover"
                 style={{ flex: 1, backgroundColor: Colors.green }}>
-                <Header onPress={() =>
-                    props.backIcon1
-                        ? props.navigation.closeDrawer()
-                        : props.navigation.openDrawer()
-                }
+                <Header onPress={() => navigation.openDrawer()}
                     image={Images.user.userProfile}
                     imgPress={() => props.navigation.navigate('MyProfile')}
                 />
@@ -46,13 +44,13 @@ const PurposeScreen = (props) => {
                             </View>
                         </View>
                         <View style={styles.btnrow}>
-                            <TouchableOpacity onPress={() => handleOptionClick('RecentTasks')}>
-                                <Text style={[styles.btntext, selectedOption === 'RecentTasks' && styles.selectedText]}>
+                            <TouchableOpacity onPress={() => setSelectedOption(0)} >
+                                <Text style={[styles.btntext, selectedOption === 0 && styles.selectedText]}>
                                     Recent Tasks
                                 </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => handleOptionClick('CompletedTasks')}>
-                                <Text style={[styles.btntext, selectedOption === 'CompletedTasks' && styles.selectedText]}>
+                            <TouchableOpacity onPress={() => setSelectedOption(1)}>
+                                <Text style={[styles.btntext, selectedOption === 1 && styles.selectedText]}>
                                     Completed Tasks
                                 </Text>
                             </TouchableOpacity>
@@ -73,18 +71,20 @@ const PurposeScreen = (props) => {
                                 setVisible(false)
                             }} />
 
-                        {selectedOption === 'CompletedTasks' ? (
+                        {selectedOption === 1 ? (
                             <>
                                 {DummyData.map((item, index) => {
                                     return (
                                         <>
                                             <View style={{ marginTop: 10 }} />
                                             <View style={{}}>
-                                                <Radiobtns btn onPressbtn={() => setVisible(!visible)} btn1 borderWidth={1}
+                                                <Radiobtns btn
+                                                    onPressbtn={() => setVisible(!visible)} btn1 borderWidth={1}
                                                     backgroundColor={Colors.shadow1}
                                                     Easy="Start your day by waking up at the same"
                                                     Medium="Start your day by waking up at the same" />
                                             </View>
+
                                         </>
                                     )
                                 })}
@@ -101,14 +101,16 @@ const PurposeScreen = (props) => {
                                                     backgroundColor={Colors.shadow1}
                                                     Easy="Start your day by waking up at the same"
                                                     Medium="Start your day by waking up at the same" />
+
                                             </View>
+
                                         </>
                                     )
                                 })}
                             </>
                         )
                         }
-                        <View style={{ marginTop: 10 }}>
+                        <View style={{ marginTop: 15, paddingHorizontal: 5 }}>
                             <Inputs
                                 TextInput1
                                 // backgroundColor={''}

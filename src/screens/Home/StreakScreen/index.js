@@ -1,66 +1,64 @@
-import { Text, TouchableOpacity, View, ScrollView, ImageBackground } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import Images from '../../../assets/Images'
-import { Colors, Fonts } from '../../../assets/theme';
-import styles from './styles'
-import CheckboxCompo from '../../../components/CheboxCompo'
-import Button from '../../../components/Button';
-import Header from '../../../components/header';
 
-const StreakScreen = () => {
-    const list = [
-        { id: 1, text: "Faith", text2: "Pray or Meditate" },
-        { id: 2, text: "Faith", text2: "Read Bible" },
-        { id: 3, text: "Family", text2: "Invest in marriage" },
-        { id: 4, text: "Family", text2: "Invest in family" },
-        { id: 5, text: "Fitness", text2: "Exercise" },
-        { id: 6, text: "Fitness", text2: "Morning Nutrition" },
-        { id: 7, text: "Education", text2: "Learn New" },
-        { id: 8, text: "Goals", text2: "Review & Grow" },
-    ]
+import { View, Text, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import styles from './styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ImageBackground } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Images from '../../../assets/Images';
+import { Colors, Fonts } from '../../../assets/theme';
+import Header from '../../../components/header';
+import Button from '../../../components/Button';
+
+const StreakScreen = (props) => {
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={styles.container}>
             <ImageBackground
                 source={Images.backgroundImages.BackgroundImage}
                 resizeMode="cover"
                 style={{ flex: 1, backgroundColor: Colors.green }}>
-                <ScrollView
+                <KeyboardAwareScrollView
+                    keyboardShouldPersistTaps="handled"
+                    enableOnAndroid={true}
+                    enableAutomaticScroll={true}
                     bounces={false}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ flexGrow: 1 }}>
-                    <Header onPress={() => props.navigation.openDrawer()} />
                     <View style={styles.container}>
-                        <Text style={styles.text}>
-                            SUNDAY, APR 9
-                        </Text>
-                        <View style={{ marginTop: 5 }} />
-                        <Text style={[styles.headtext, { fontSize: Fonts.size.xLarge }]}>FOUR PILLARS OF GROWTH</Text>
-                        <View style={styles.lists}>
-                            {list.map((item) => {
-                                return (
-                                    <>
-                                        <ScrollView>
-                                            <CheckboxCompo text={item.text} text2={item.text2} />
-                                        </ScrollView>
-                                    </>
-                                )
-                            })}
-                        </View>
-                        <Text style={[styles.headtext, { fontSize: Fonts.size.xLarge }]}>BONUS POINTS</Text>
-                        <View style={{ marginTop: 5 }} />
-                        <Text style={styles.text}>Write Gratitude & Journal & Get Points</Text>
-                        <View style={{ marginTop: 5 }} />
-                        <View style={styles.boxView}>
-                            <Button button2 btn2 onPress={() => { }} borderRadius={10} title={'Write Gratitude'} title1="2 remainings" />
-                            <View style={{ marginTop: 15 }} />
-                            <Button button2 onPress={() => { }} title={'Start Writing Journal'} borderwidth={1} borderColor={Colors.white} borderRadius={10}
-                            />
+                        <Header header
+                            back={"Back"}
+                            backgroundColor={Colors.shadow1}
+                            onPress1={() => props.navigation.goBack()}
+                            onPress2={() => props.navigation.navigate('SignUpScreen')}
+                            color={Colors.emailcolor}
+                        />
+                        <View style={{ marginTop: 25 }} />
+                        <Text style={styles.headtext}>Journal</Text>
+                        <View style={{ paddingHorizontal: 15, marginTop: 10, flex: 1 }} >
+                            <TouchableOpacity onPress={() => { props.navigation.navigate('How_It_Works') }}
+                                style={styles.box}>
+                                <Text numberOfLines={1} style={styles.text}>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                    sed diam nonumy eirmod tempor invidunt ut...</Text>
+                                <Text style={[styles.text, { paddingTop: 10, color: Colors.text.secondary, fontSize: Fonts.size.xxSmall }]}>
+                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                                    sed diam nonumy eirmod tempor invidunt ut...</Text>
+                            </TouchableOpacity>
+                            <View style={styles.textView}>
+                                <Text style={{ color: Colors.shadow1 }}>08/30/1967</Text>
+                                <Text style={{ color: Colors.shadow1 }}>06:30 PM</Text>
+                            </View>
+                            <View style={{ marginVertical: 10, marginTop: 25 }}>
+                                <Button button1 btn1 onPress={() => props.navigation.navigate('WriteGratitude')} title={'Write Journal'}
+                                    borderRadius={10}
+                                />
+                            </View>
                         </View>
                     </View>
-                </ScrollView>
+                </KeyboardAwareScrollView>
             </ImageBackground>
         </SafeAreaView>
+
     )
 }
 

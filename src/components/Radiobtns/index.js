@@ -5,8 +5,6 @@ import { Colors } from '../../assets/theme';
 import styles from './styles';
 import { Doc, LockIcon, } from '../../assets/theme/svgimages';
 
-
-
 const Radiobtns = (props) => {
     const [value, setValue] = useState('Easy');
     const [color, setColor] = useState(false)
@@ -20,13 +18,12 @@ const Radiobtns = (props) => {
                             value="second"
                             status={checked === 'second' ? 'checked' : 'unchecked'}
                             onPress={() => setChecked(!checked)}
-                            color={setColor === true ? Colors.text.tertiary : Colors.text.secondary}
+                            color={setColor === true ? Colors.text.tertiary : Colors.text.tertiary}
                         />) : (
                             <View style={{ padding: 2, borderRadius: 15, backgroundColor: Colors.text.tertiary }}>
                                 <LockIcon />
                             </View>
                         )}
-
                     <Text style={styles.placeholdertext}>
                         Start your day by waking up at the same
                     </Text>
@@ -54,10 +51,10 @@ const Radiobtns = (props) => {
                                     value="Easy"
                                     status={value === 'Easy' ? 'checked' : 'unchecked'}
                                     onPress={() => setValue('Easy')}
-                                    color={setColor === true ? Colors.primary : Colors.text.quaternary}
+                                    color={setColor === true ? Colors.text.tertiary : Colors.text.tertiary}
                                 />)
                             }
-                            <Text style={{ color: setColor === true ? Colors.white : Colors.placeHolderColor, paddingLeft: 15 }}>{props.Easy}</Text>
+                            <Text style={{ color: setColor === true ? Colors.text.tertiary : Colors.placeHolderColor, paddingLeft: 15 }}>{props.Easy}</Text>
                         </TouchableOpacity>
                         <View style={{ paddingTop: 10 }} />
                         <TouchableOpacity onPress={onPressbtn} style={{

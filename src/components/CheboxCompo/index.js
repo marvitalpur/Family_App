@@ -7,14 +7,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const CheckboxCompo = (props) => {
     const { checked, setChecked } = props
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={props.onClick} style={styles.container}>
             <View style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between'
             }} >
                 <View>
-                    <Text style={[styles.text, { color: checked ? Colors.warning : Colors.gray11 }]}>{props.text}</Text>
-                    <Text style={[styles.text2, { color: checked ? Colors.warning : Colors.gray11 }]}>
+                    <Text style={[styles.text, { color: checked ? Colors.warning : Colors.text.secondary }]}>{props.text}</Text>
+                    <Text style={[styles.text2, { color: checked ? Colors.warning : Colors.text.tertiary }]}>
                         {props.text2}
                     </Text>
                 </View>
@@ -22,12 +22,12 @@ const CheckboxCompo = (props) => {
                     <Icon
                         name={checked ? 'check-square' : 'square-o'}
                         size={20}
-                        color={checked ? Colors.warning : Colors.gray11}
+                        color={checked ? Colors.warning : Colors.text.tertiary}
                     />
                     {/* You can add additional text or styling here */}
                 </TouchableOpacity>
             </View>
-        </View >
+        </TouchableOpacity >
 
     )
 }
