@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 import styles from './styles';
 import { Colors, Fonts } from '../../assets/theme';
 import { BottomIcon1, BottomIcon1W, BottomIcon2, BottomIcon2W, BottomIcon3, BottomIcon3W, BottomIcon4, BottomIcon4W, BottomIcon5, BottomIcon5W } from '../../assets/theme/svgimages';
-import Header from '../header';
 import HomeScreen from '../../screens/Home/HomeScreen';
-import Affirmations from '../../screens/Home/AffirmationsScreen';
-import PurposeScreen from '../../screens/Home/PurposeScreen';
 import TeamScreen from '../../screens/Home/TeamScreen';
 import StreakScreen from '../../screens/Home/StreakScreen';
+import Affirmations from '../../screens/Home/Affirmations';
+import PurposeScreen from '../../screens/Home/PurposeScreen';
 
 const MyTabs = (props) => {
     const [seleted, setSelected] = useState(0);

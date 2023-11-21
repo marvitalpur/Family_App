@@ -3,8 +3,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnBoarding from '../screens/Auth/Onboarding';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from '../screens/Auth/Login';
-import HomeScreen from '../screens/Home/HomeScreen';
-import MyTabs from './bottomtab';
 import ForgetPAssword from '../screens/Auth/ForgetPAssword';
 import MyDrawer from './Drawer';
 import OtpScreen from '../screens/Auth/OtpScreen';
@@ -52,7 +50,6 @@ const StackNavigator = () => {
                 <Stack.Screen name="OtpScreen" component={OtpScreen} />
                 <Stack.Screen name="PlanScreen" component={PlanScreen} />
                 <Stack.Screen name="MyProfile" component={MyProfile} />
-                <Stack.Screen name="PurposeScreen" component={PurposeScreen} />
                 <Stack.Screen name="My Journals" component={MyJournals} />
                 <Stack.Screen name="How_It_Works" component={How_It_Works} />
                 <Stack.Screen name="WriteGratitude" component={WriteGratitude} />

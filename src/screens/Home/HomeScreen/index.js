@@ -37,7 +37,7 @@ const HomeScreen = (props) => {
                 style={{ flex: 1, backgroundColor: Colors.green }}>
                 <Header onPress={() => navigation.openDrawer()}
                     image={Images.user.userProfile}
-                    imgPress={() => props.navigation.navigate('MyProfile')}
+                    imgPress={() => navigation.navigate('MyProfile')}
                 />
                 <ScrollView
                     bounces={false}

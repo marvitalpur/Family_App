@@ -12,22 +12,23 @@ import UserCompo from '../../../components/userCompo';
 import DummyData from '../../../components/DummyData';
 import { useNavigation } from '@react-navigation/native';
 
+
 const Affirmations = (props) => {
     const navigation = useNavigation();
     const [show, setShow] = useState('');
     const [visible, setVisible] = useState(false);
     const [checked, setChecked] = React.useState('');
     const [selectedOption, setSelectedOption] = useState(0);
-
     return (
+
         <SafeAreaView style={{ flex: 1 }}>
             <ImageBackground
                 source={Images.backgroundImages.BackgroundImage}
                 resizeMode="cover"
                 style={{ flex: 1, backgroundColor: Colors.green }}>
-                <Header onPress={() => props.navigation.openDrawer()}
+                <Header onPress={() => navigation.openDrawer()}
                     image={Images.user.userProfile}
-                    imgPress={() => props.navigation.navigate('MyProfile')}
+                    imgPress={() => navigation.navigate('MyProfile')}
                 />
                 <ScrollView
                     bounces={false}
@@ -35,7 +36,7 @@ const Affirmations = (props) => {
                     contentContainerStyle={{ flexGrow: 1 }}>
                     <View style={styles.container}>
                         <View style={{ marginTop: 15 }} />
-                        <Text style={[styles.text, { fontSize: Fonts.size.xxLarge }]}>Purpose</Text>
+                        <Text style={[styles.headtext, { fontSize: Fonts.size.xxLarge }]}>Purpose</Text>
                         <View style={{ flexDirection: 'row', paddingHorizontal: 5 }}>
                             <ScrollView
                                 horizontal
@@ -68,7 +69,9 @@ const Affirmations = (props) => {
                         <View style={styles.textView}>
                             <Text style={[styles.text,]}>
                                 Daily Habits</Text>
-                            <Text onPress={() => props.navigation.navigate('PurposeScreen')} style={[styles.seealltext,]}>
+                            <Text
+                                onPress={() => navigation.navigate('PurposeScreen', { headingText: "Daily Habits" })}
+                                style={[styles.seealltext,]}>
                                 See All</Text>
                         </View>
                         <View style={{ paddingHorizontal: 15, }}>
@@ -76,13 +79,14 @@ const Affirmations = (props) => {
                                 backgroundColor={Colors.shadow1}
                                 Easy="Start your day by waking up at the same"
                                 Medium="Start your day by waking up at the same" />
-
                         </View>
                         <View style={{ marginTop: 10 }} />
                         <View style={styles.textView}>
                             <Text style={[styles.text,]}>
                                 Weekly Tasks</Text>
-                            <Text onPress={() => props.navigation.navigate('PurposeScreen')} style={[styles.seealltext,]}>
+                            <Text
+                                onPress={() => navigation.navigate('PurposeScreen', { headingText: "Weekly Tasks" })}
+                                style={[styles.seealltext,]}>
                                 See All</Text>
                         </View>
                         <View style={{ paddingHorizontal: 15, }}>
@@ -90,13 +94,14 @@ const Affirmations = (props) => {
                                 backgroundColor={Colors.shadow1}
                                 Easy="Start your day by waking up at the same"
                                 Medium="Start your day by waking up at the same" />
-
                         </View>
                         <View style={{ marginTop: 10 }} />
                         <View style={styles.textView}>
                             <Text style={[styles.text,]}>
                                 Monthly Goals</Text>
-                            <Text onPress={() => props.navigation.navigate('PurposeScreen')} style={[styles.seealltext,]}>
+                            <Text
+                                onPress={() => navigation.navigate('PurposeScreen', { headingText: "Monthly Goals" })}
+                                style={[styles.seealltext,]}>
                                 See All</Text>
                         </View>
                         <View style={{ paddingHorizontal: 15, }}>
@@ -110,7 +115,9 @@ const Affirmations = (props) => {
                         <View style={styles.textView}>
                             <Text style={[styles.text,]}>
                                 Affirmations</Text>
-                            <Text onPress={() => props.navigation.navigate('PurposeScreen')} style={[styles.seealltext,]}>
+                            <Text
+                                onPress={() => navigation.navigate('PurposeScreen', { headingText: "Affirmations" })}
+                                style={[styles.seealltext,]}>
                                 See All</Text>
                         </View>
                         <View style={{ paddingHorizontal: 15, }}>
@@ -125,7 +132,9 @@ const Affirmations = (props) => {
                             <Text style={[styles.text,
                             { color: Colors.text.secondary }]}>
                                 Completed</Text>
-                            <Text onPress={() => props.navigation.navigate('PurposeScreen')} style={[styles.seealltext,]}>
+                            <Text
+                                onPress={() => navigation.navigate('PurposeScreen', { headingText: "Compeleted" })}
+                                style={[styles.seealltext,]}>
                                 See All</Text>
                         </View>
                         <View style={{ paddingHorizontal: 15, }}>
@@ -140,7 +149,7 @@ const Affirmations = (props) => {
                             <Text style={[styles.text,
                             {}]}>
                                 My Team</Text>
-                            <Text style={[styles.seealltext,]}>
+                            <Text style={[styles.seealltext,]} onPress={() => navigation.navigate('PurposeScreen', { headingText: "My Team" })}>
                                 See All</Text>
                         </View>
                         <View style={{ paddingHorizontal: 15, }}>
@@ -196,10 +205,4 @@ const Affirmations = (props) => {
         </SafeAreaView >
     )
 }
-
 export default Affirmations
-
-
-
-
-

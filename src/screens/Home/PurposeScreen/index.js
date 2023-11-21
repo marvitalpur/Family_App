@@ -1,3 +1,4 @@
+
 import { Text, TouchableOpacity, View, ScrollView, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -10,17 +11,16 @@ import { DimondIcon } from '../../../assets/theme/svgimages';
 import Radiobtns from '../../../components/Radiobtns';
 import Popup from '../../../components/popup';
 import DummyData from '../../../components/DummyData';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 
-const PurposeScreen = (props) => {
+const PurposeScreen = ({ route }) => {
+
     const navigation = useNavigation();
     const [show, setShow] = useState(false);
     const [visible, setVisible] = useState(false);
     const [selectedOption, setSelectedOption] = useState(0);
-    const handleOptionClick = (option) => {
-        setSelectedOption(1);
-    };
+    const { headingText } = route.params;
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ImageBackground
@@ -29,7 +29,7 @@ const PurposeScreen = (props) => {
                 style={{ flex: 1, backgroundColor: Colors.green }}>
                 <Header onPress={() => navigation.openDrawer()}
                     image={Images.user.userProfile}
-                    imgPress={() => props.navigation.navigate('MyProfile')}
+                    imgPress={() => navigation.navigate('MyProfile')}
                 />
                 <ScrollView
                     bounces={false}
@@ -37,7 +37,7 @@ const PurposeScreen = (props) => {
                     contentContainerStyle={{ flexGrow: 1 }}>
                     <View style={styles.container}>
                         <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={[styles.text, { fontSize: Fonts.size.xxLarge }]}>Affirmations</Text>
+                            <Text style={[styles.text, { fontSize: Fonts.size.xxLarge }]}>{headingText}</Text>
                             <View style={{ flexDirection: 'row', paddingTop: 10 }}>
                                 <DimondIcon />
                                 <Text style={[{ paddingLeft: 5, fontSize: Fonts.size.xxSmall, color: Colors.text.tertiary }]}>145 Pts</Text>
@@ -84,7 +84,6 @@ const PurposeScreen = (props) => {
                                                     Easy="Start your day by waking up at the same"
                                                     Medium="Start your day by waking up at the same" />
                                             </View>
-
                                         </>
                                     )
                                 })}
@@ -130,6 +129,9 @@ const PurposeScreen = (props) => {
 }
 
 export default PurposeScreen
+
+
+
 
 
 
