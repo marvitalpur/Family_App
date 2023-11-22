@@ -51,6 +51,8 @@ const StackNavigator = () => {
                 <Stack.Screen name="PlanScreen" component={PlanScreen} />
                 <Stack.Screen name="MyProfile" component={MyProfile} />
                 <Stack.Screen name="My Journals" component={MyJournals} />
+                <Stack.Screen name="PurposeScreen" component={PurposeScreen} />
+
                 <Stack.Screen name="How_It_Works" component={How_It_Works} />
                 <Stack.Screen name="WriteGratitude" component={WriteGratitude} />
             </Stack.Navigator>

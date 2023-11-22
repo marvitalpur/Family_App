@@ -13,13 +13,15 @@ export default StyleSheet.create({
     },
     text: {
         textAlign: 'center',
-        fontSize: Fonts.size.xLarge
+        fontSize: Fonts.size.xLarge,
+        color: Colors.text.tertiary,
 
     },
     logintext: {
         paddingLeft: 20,
         fontSize: Fonts.size.xLarge,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: Colors.text.tertiary,
     },
     homeHeader: {
         height: 60,

@@ -24,7 +24,6 @@ const MyDrawer = (props) => {
             headerShown={{}}
 
             drawerContent={props => <CustomDrawerContent {...props} />}>
-
             <Drawer.Screen name="MyTabs" component={MyTabs} options={{ headerShown: false }} />
             <Drawer.Screen name="My Profile" component={MyProfile} options={{ headerShown: false }} />
             <Drawer.Screen name="My Journals" component={MyJournals} options={{ headerShown: false }} />

@@ -9,8 +9,10 @@ import Images from '../../../assets/Images';
 import { Colors, Fonts } from '../../../assets/theme';
 import Header from '../../../components/header';
 import Button from '../../../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 const StreakScreen = (props) => {
+    const navigation = useNavigation()
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground
@@ -49,7 +51,7 @@ const StreakScreen = (props) => {
                                 <Text style={{ color: Colors.shadow1 }}>06:30 PM</Text>
                             </View>
                             <View style={{ marginVertical: 10, marginTop: 25 }}>
-                                <Button button1 btn1 onPress={() => props.navigation.navigate('WriteGratitude')} title={'Write Journal'}
+                                <Button button1 btn1 onPress={() => navigation.navigate('WriteGratitude')} title={'Write Journal'}
                                     borderRadius={10}
                                 />
                             </View>

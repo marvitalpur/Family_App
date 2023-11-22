@@ -20,7 +20,7 @@ const PurposeScreen = ({ route }) => {
     const [show, setShow] = useState(false);
     const [visible, setVisible] = useState(false);
     const [selectedOption, setSelectedOption] = useState(0);
-    const { headingText } = route.params;
+    // const { headingText = 'Default Heading', header = false } = params;
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ImageBackground
@@ -37,7 +37,7 @@ const PurposeScreen = ({ route }) => {
                     contentContainerStyle={{ flexGrow: 1 }}>
                     <View style={styles.container}>
                         <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={[styles.text, { fontSize: Fonts.size.xxLarge }]}>{headingText}</Text>
+                            <Text style={[styles.text, { fontSize: Fonts.size.xxLarge }]}>Purpose</Text>
                             <View style={{ flexDirection: 'row', paddingTop: 10 }}>
                                 <DimondIcon />
                                 <Text style={[{ paddingLeft: 5, fontSize: Fonts.size.xxSmall, color: Colors.text.tertiary }]}>145 Pts</Text>

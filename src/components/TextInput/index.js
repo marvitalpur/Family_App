@@ -7,6 +7,7 @@ import { Colors } from '../../assets/theme';
 
 const Inputs = (props) => {
     const [text, setText] = React.useState("");
+    const { handleChange, value } = props
     return (
         <>
             {props.TextInput1 ? (
@@ -20,8 +21,8 @@ const Inputs = (props) => {
                     secureTextEntry={props.secureTextEntry}
                     theme={{ roundness: props.borderRadius }}
                     placeholder={props.placeholder}
-                    value={props.value}
-                    onChangeText={props.handleChange}
+                    value={value}
+                    onChangeText={handleChange}
                     placeholderTextColor={Colors.text.secondary}
                     style={styles.inputs}
                 />
@@ -40,7 +41,7 @@ const Inputs = (props) => {
                     onChangeText={props.handleChange}
                     placeholderTextColor={Colors.text.secondary}
                     style={styles.inputs}
-                    right={<TextInput.Icon icon="eye" color={props.color} />}
+                    right={<TextInput.Icon icon={props.iconname} color={props.color} />}
 
 
                 />

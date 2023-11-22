@@ -86,7 +86,9 @@ const WriteGratitude = (props) => {
                             btntitle2="Cancel" btntitle1="Confirm"
                             headtext="Confirm"
                             text="Remember you can't uncheck this term again?"
-                            isModalVisible={visible} hide={() => setShow(!show)} />
+                            isModalVisible={visible} hide={
+                                () =>
+                                    setShow(!show)} />
                         <Popup
                             btn1 btntitle1="Done"
                             headtext="Hurray!"
@@ -94,8 +96,10 @@ const WriteGratitude = (props) => {
                             isModalVisible={show} hide={() => {
                                 setShow(false)
                                 setVisible(false)
-                                props.navigation.navigate('My Journals')
-                            }} />
+                                props.navigation.replace('MyDrawer', { screen: 'MyTabs' })
+                            }}
+
+                        />
                     </View>
                 </KeyboardAwareScrollView>
             </ImageBackground>

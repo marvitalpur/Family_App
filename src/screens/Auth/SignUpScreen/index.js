@@ -94,6 +94,8 @@ const SignUpScreen = (props) => {
                                 setText={setDob}
                                 secureTextEntry={true}
                                 formKey="dob"
+                                color={Colors.text.secondary}
+                                iconname="calendar"
                             />
                             <View style={{ marginTop: 10 }} />
                             <Inputs
@@ -104,6 +106,8 @@ const SignUpScreen = (props) => {
                                 setText={setPassword}
                                 secureTextEntry={true}
                                 formKey="password"
+                                color={Colors.text.secondary}
+                                iconname="eye"
                             />
                             <View style={{ marginTop: 15 }} />
                             <Text style={[styles.headtext, { fontSize: Fonts.size.medium }]}>Account Scoring Level</Text>

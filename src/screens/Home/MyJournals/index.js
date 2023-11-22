@@ -30,7 +30,7 @@ const MyJournals = (props) => {
                         <Header header
                             back={"Back"}
                             backgroundColor={Colors.shadow1}
-                            onPress1={() => props.navigation.goBack()}
+                            onPress1={() => props.navigation.replace('MyDrawer', { screen: 'MyTabs' })}
                             onPress2={() => props.navigation.navigate('SignUpScreen')}
                             color={Colors.emailcolor}
                         />
