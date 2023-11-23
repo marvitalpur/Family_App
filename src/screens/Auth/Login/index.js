@@ -15,9 +15,10 @@ const Login = (props) => {
     const [badPassword, setBadPassword] = useState('')
     const handleLogin = () => {
         const isValid = Validation();
-        if (isValid) {
-            login()
-            // props.navigation.replace('MyDrawer', { screen: 'MyTabs' });
+        // if (isValid)
+        {
+            // login()
+            props.navigation.replace('MyDrawer', { screen: 'MyTabs' });
         }
     };
     const Validation = () => {

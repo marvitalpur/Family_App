@@ -1,15 +1,22 @@
 import { Text, View, ImageBackground, ScrollView } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './styles';
 import Button from '../../../components/Button';
-
 import Slider from '../../../components/slider';
 import { Colors } from '../../../assets/theme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Images from '../../../assets/Images';
-
-
+import { useSelector } from 'react-redux';
 const OnBoarding = (props) => {
+    const authData = useSelector(state => state.auth)
+    useEffect(() => {
+        console.log(authData)
+        if (authData.data == null) {
+            props.navigation.navigate('Login');
+        } else {
+            props.navigation.replace('MyDrawer', { screen: 'MyTabs' });
+        }
+    }, [])
     return (
         <>
             <SafeAreaView style={styles.container}>
